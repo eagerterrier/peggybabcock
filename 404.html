@@ -76,7 +76,10 @@
         if (URLs.includes(currentURL)) {
             fetch(`${currentURL}.json`)
                 .then((response) => response.json())
-                .then((data) => console.log(data));
+                .then((data) => {
+                    document.title = data.title;
+                    window.document.getElementsByTagName('article')[0].innerHTML = data.body;
+                });
         }
     </script>
 </body>
