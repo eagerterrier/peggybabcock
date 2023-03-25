@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Peggy Babcock</title>
+    <style>
+        body { 
+            background-color: #D76CFF;
+        }
+        h1 {
+            display: block;
+            background-image: url('./img/Peggy-Babcock-Logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 100px;
+            text-indent: -10000px;
+            overflow: none;
+        }
+        h2 {
+            font-family: "comic sans", "comic sans MS", comicsans, wingdings;
+            color: #fff;
+        }
+        @keyframes pb-blink {
+          0% {
+            opacity: 1;
+          }
+            50% {
+            opacity: 0;
+          }
+            100% {
+            opacity: 1;
+          }
+        }
+        .blink {
+            animation-name: pb-blink;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: step-start;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+            <h1>Peggy Babcock's</h1>
+            <marquee>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Mixed Biscuits</a></li>
+                    <li><a href="">Bag'o'Biscuits</a></li>
+                    <li><a href="">Biscuit Crumbs</a></li>
+                    <li><a href="">Biscuit Scrapings</a></li>
+                    <li><a href="">Biscuit Dust</a></li>
+                    <li><a href="">Legal Department</a></li>
+                    <li><a href="">Lawsuits</a></li>
+                </ul>
+            </marquee>
+        </nav>
+        <article>
+            <h2>Home of our famouse...</h2>
+            <marquee>
+                <ul>
+                    <li class="blink">Mixed Biscuit</li>
+                </ul>
+            </marquee>
+        </article>
+        <footer>
+            <div>
+                © 1997, Peggy Babcock
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
