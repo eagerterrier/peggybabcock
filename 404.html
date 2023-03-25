@@ -72,7 +72,12 @@
     </div>
     <script>
         const URLs = ["/mixed-biscuits", "/bag-o-biscuits", "/biscuit-crumbs", "/biscuit-scrapings", "/biscuit-dust", "/legal-department", "/lawsuits"];
-        
+        const currentURL = window.location.href;
+        if (URLs.includes(currentURL)) {
+            fetch(`${currentURL}.json`)
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
     </script>
 </body>
 </html>
