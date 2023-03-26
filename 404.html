@@ -75,8 +75,10 @@
     <script>
         const URLs = ["/mixed-biscuits", "/bag-o-biscuits", "/biscuit-crumbs", "/biscuit-scrapings", "/biscuit-dust", "/legal-department", "/lawsuits"];
         const currentURL = window.location.pathname;
-        if (URLs.includes(currentURL)) {
-            fetch(`${currentURL}.json`)
+        const baseURL = window.location.hostname === 'localhost' ? '/peggybabcock/' : '/';
+        const newUrl = currentURL.replace(baseURL, '/');
+        if (URLs.includes(newUrl)) {
+            fetch(`data/${newUrl}.json`)
                 .then((response) => response.json())
                 .then((data) => {
                     document.title = data.title;
