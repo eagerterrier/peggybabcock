@@ -33,8 +33,17 @@
     <meta name="msapplication-square310x310logo" content="icons/mstile-310x310.png" />
     <title>Peggy Babcock</title>
     <style>
-        body { 
+        body, html { 
             background-color: #D76CFF;
+            min-height: calc(100vh - 19px);
+            position: relative;
+        }
+        footer {
+            position: absolute;
+            bottom: 19px;
+        }
+        article {
+            padding-bottom: 60px;
         }
         a {
             text-decoration: none;
