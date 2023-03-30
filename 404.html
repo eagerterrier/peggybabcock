@@ -59,7 +59,7 @@
             padding: 20px 0 0 0;
             margin: 0;
         }
-        h1 > span {
+        h1 > span, .visually-hidden {
             position:absolute;
             left:-10000px;
             top:auto;
@@ -134,7 +134,7 @@
             <h1>Peggy Babcock's <span>Mixed Biscuits</span></h1>
         </header>
         <nav>
-            <marquee behavior="alternate">
+            <marquee behavior="alternate" scrollamount="2">
                 <ul>
                     <li><a href="./">Home</a></li>
                     <li><a href="./mixed-biscuits">Mixed Biscuits</a></li>
@@ -149,7 +149,7 @@
                 </ul>
             </marquee>
         </nav>
-        <article>
+        <article class="visually-hidden">
             <img src="./img/peggy-babcock.jpg" alt="Peggy Babcock's Mixed Biscuit in a tin" />
             <h2>Home of our famouse...</h2>
             <div>
@@ -169,14 +169,19 @@
         const currentURL = window.location.pathname;
         const baseURL = window.location.hostname === 'localhost' ? '/peggybabcock/' : '/';
         const newUrl = currentURL.replace(baseURL, '/');
+        const articleElement = window.document.getElementsByTagName('article')[0];
         if (URLs.includes(newUrl)) {
             fetch(`data/${newUrl}.json`)
                 .then((response) => response.json())
                 .then((data) => {
                     document.title = data.title;
                     const newHtml = data.img ? `<img src="./img/${data.img}" alt="${data.img_alt}" />` : '';
-                    window.document.getElementsByTagName('article')[0].innerHTML = `${newHtml}<h2>${data.title}</h2>${data.body}`;
+                    articleElement.innerHTML = `${newHtml}<h2>${data.title}</h2>${data.body}`;
+                    articleElement.classList.remove("visually-hidden");
                 });
+        }
+        else {
+            articleElement.classList.remove("visually-hidden");
         }
         const registerServiceWorker = async () => {
             if ("serviceWorker" in navigator) {
