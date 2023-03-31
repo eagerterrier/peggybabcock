@@ -190,9 +190,7 @@
                     const newHtml = data.img ? `<img src="./img/${data.img}" alt="${data.img_alt}" />` : '';
                     let newHTML = `${newHtml}<h2>${data.title}</h2>`;
                     if (Array.isArray(data.body)) {
-                        newHTML += data.body.reduce((newstring, block, i) => {
-                            return newstring + block.block;
-                        }, '');
+                        newHTML += data.body.reduce((newstring, block) => newstring + block.block, '');
                     }
                     else {
                         newHTML += data.body;
