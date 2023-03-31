@@ -1,4 +1,36 @@
 {
     "title": "The History of Peggy Babcock's",
-    "body": "<h3>1800s - the family business begins</h3><p>The Babcock family started producing biscuits in the 19th century in England. They were concerned about the child chimney sweeps that proliforated the soot cleaning industry of the Victorian era.</p><p>Just how could they do a proper job when they were fed mainly gruel?</p><p>The answer was access to affordable refined carbohydrates</p><p>The mixed biscuit price was taken out of the tiny sweeps' wages and insulin surges were born.</p><h3>1925</h3><p>Peggy Babcock was born in Mayfair, London.</p><p>The family business had been gravely affected by The Chimney Sweeps Act of 1834 and despite the war ministry deal to supply biscuit crumbs to our brave Tommys, her family could only afford three gardeners for their garden. Life wasn't easy for Peggy growning up, but she studied hard and completed her A Levels in Chemistry, Physics and Home Economics.</p><img src=\"./img/peggy-scientist.jpg\" loading=\"lazy\" alt=\"Peggy Studying hard\" /><h3>1939-1945 - the war years</h3><p>Peggy became the poster child of hard work and refined sugars in Eastern Europe.</p><img src=\"./img/peggy-war-years.jpg\" loading=\"lazy\" alt=\"Peggy in the war years\" /><h3>1946 - Science</h3><p>After finishing her Chemistry degree at Brasenose College, Oxforrd, Peggy travels to the United States and starts work on an exciting project about New York in Los Alamos</p><img src=\"./img/manhattan-biscuits.jpg\" loading=\"lazy\" alt=\"Manhattan\" /><h3>1950s - Experiments</h3><p>After successful Beagle experiments whilst working at the R&D facility at BAT, Peggy starts her own research facility at the Babcock HQ.</p><img src=\"./img/beagle-biscuits.jpg\" loading=\"lazy\" alt=\"Beagle\" /><h3>1960s - expansion</h3><p>With Peggy's enthusiasm for baked goodness and family values, she created her first board game - <i>Bisckcccocicks's - Boliay soorable sliahs</i> which was an instant hit with young and old alike.</p><p>The inaugral Bisckcccocicks World Championship Finals were held in Netherthong in 1968 with Giles Fetherstonehaugh raising the biscuit trophy aloft in front of a frenzied crowd by the bandstand.</p><img src=\"./img/peggy-board-game.jpg\" loading=\"lazy\" alt=\"Biscuit Board Games\" /><p>Sadly in the riots that followed, the bandstand was razed to the ground when a roman candle toppled over, but the factory workers raised enough money for a commemorative plaque to be installed on the site where the band last played their version of Paint it Black as the flames licked the back of the painted stage.</p>"
+    "body": [
+        {"block": "<h3>1800s - the family business begins</h3>"},
+        {"block": "<p>The Babcock family started producing biscuits in the 19th century in England. They were concerned about the child chimney sweeps that proliforated the soot cleaning industry of the Victorian era.</p>"},
+        {"block": "<p>Just how could they do a proper job when they were fed mainly gruel?</p>"},
+        {"block": "<p>The answer was access to affordable refined carbohydrates</p>"},
+        {"block": "<p>The mixed biscuit price was taken out of the tiny sweeps' wages and insulin surges were born.</p>"},
+        {"block": "<h3>1925</h3>"},
+        {"block": "<p>Peggy Babcock was born in Mayfair, London.</p>"},
+        {"block": "<p>The family business had been gravely affected by The Chimney Sweeps Act of 1834 and despite the war ministry deal to supply biscuit crumbs to our brave Tommys, her family could only afford three gardeners for their garden. Life wasn't easy for Peggy growning up, but she studied hard and completed her A Levels in Chemistry, Physics and Home Economics.</p>"},
+        {"block": "<img src=\"./img/peggy-scientist.jpg\" loading=\"lazy\" alt=\"Peggy Studying hard\" />"},
+        {"block": "<h3>1939-1945 - the war years</h3>"},
+        {"block": "<p>Peggy became the poster child of hard work and refined sugars in Eastern Europe.</p>"},
+        {"block": "<img src=\"./img/peggy-war-years.jpg\" loading=\"lazy\" alt=\"Peggy in the war years\" />"},
+        {"block": "<h3>1946 - Science</h3>"},
+        {"block": "<p>After finishing her Chemistry degree at Brasenose College, Oxforrd, Peggy travels to the United States and starts work on an exciting project about New York in Los Alamos</p>"},
+        {"block": "<img src=\"./img/manhattan-biscuits.jpg\" loading=\"lazy\" alt=\"Manhattan\" />"},
+        {"block": "<h3>1950s - Experiments</h3>"},
+        {"block": "<p>After successful Beagle experiments whilst working at the R&D facility at BAT, Peggy starts her own research facility at the Babcock HQ.</p>"},
+        {"block": "<img src=\"./img/beagle-biscuits.jpg\" loading=\"lazy\" alt=\"Beagle\" />"},
+        {"block": "<h3>1960s - expansion</h3>"},
+        {"block": "<p>With Peggy's enthusiasm for baked goodness and family values, she created her first board game - <i>Bisckcccocicks's - Boliay soorable sliahs</i> which was an instant hit with young and old alike.</p>"},
+        {"block": "<p>The inaugral Bisckcccocicks World Championship Finals were held in Netherthong in 1968 with Giles Fetherstonehaugh raising the biscuit trophy aloft in front of a frenzied crowd by the bandstand.</p>"},
+        {"block": "<img src=\"./img/peggy-board-game.jpg\" loading=\"lazy\" alt=\"Biscuit Board Games\" />"},
+        {"block": "<p>Sadly in the riots that followed, the bandstand was razed to the ground when a roman candle toppled over, but the factory workers raised enough money for a commemorative plaque to be installed on the site where the band last played their version of Paint it Black as the flames licked the back of the painted stage.</p>"},
+        {"block": ""},
+        {"block": ""},
+        {"block": ""},
+        {"block": ""},
+        {"block": ""},
+        {"block": ""},
+        {"block": ""}
+    ]
+    
 }
