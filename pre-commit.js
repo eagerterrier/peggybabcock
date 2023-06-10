@@ -4,7 +4,7 @@ const sharp = require('sharp');
 const sensibleTimes = time => time.substring(0, time.length -2);
 const removeMilliseconds = originalDate => originalDate.toISOString().split('.')[0];
 
-const forceUpdate = false;
+const forceUpdate = true;
 
 const dataPath = './data/';
 const imagePath = './img/';
@@ -50,7 +50,7 @@ dataFiles.forEach((file, i) => {
       const dataFileContents = fs.readFileSync(dataPath + file, 'utf8');
       const data = JSON.parse(dataFileContents);
       let toReturn = `<h2>${data.title}</h2>`;
-      const newHtml = data.img ? `<picture><source srcset="./img/${data.img.replace('.jpg', '.webp')}" type="image/webp"><source srcset="./img/${data.img.replace('.jpg', '.avif')}" type="image/avif"><img src="./img/${data.img}" width="${data.img === 'peggy-babcock.jpg' ? '1424' : '1024'}" height="${data.img === 'peggy-babcock.jpg' ? '848' : '1024'}" alt="${data.img_alt}" /></picture>` : '';
+      const newHtml = data.img ? `<picture><source srcset="./img/${data.img.replace('.jpg', '.avif')}" type="image/avif"><source srcset="./img/${data.img.replace('.jpg', '.webp')}" type="image/webp"><img src="./img/${data.img}" width="${data.img === 'peggy-babcock.jpg' ? '1424' : '1024'}" height="${data.img === 'peggy-babcock.jpg' ? '848' : '1024'}" alt="${data.img_alt}" /></picture>` : '';
       let newHTML = `${newHtml}<h2>${data.title}</h2>`;
       if (Array.isArray(data.body)) {
           newHTML += data.body.reduce((newstring, block) => newstring + block.block, '');
