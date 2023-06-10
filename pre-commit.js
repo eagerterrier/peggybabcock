@@ -4,7 +4,7 @@ const sharp = require('sharp');
 const sensibleTimes = time => time.substring(0, time.length -2);
 const removeMilliseconds = originalDate => originalDate.toISOString().split('.')[0];
 
-const forceUpdate = true;
+const forceUpdate = false;
 
 const dataPath = './data/';
 const imagePath = './img/';
