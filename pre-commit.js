@@ -1,4 +1,5 @@
 const fs = require('fs');
+const sharp = require('sharp');
 
 const sensibleTimes = time => time.substring(0, time.length -2);
 const removeMilliseconds = originalDate => originalDate.toISOString().split('.')[0];
@@ -6,12 +7,14 @@ const removeMilliseconds = originalDate => originalDate.toISOString().split('.')
 const forceUpdate = false;
 
 const dataPath = './data/';
+const imagePath = './img/';
 const templateFile = fs.readFileSync('./404.html', 'utf8');
 const templateFileModified = removeMilliseconds(new Date(fs.statSync('./404.html').mtime));
 const previousTemplateFile = fs.readFileSync('./previous-404.html', 'utf8');
 const previousTemplateFileModified = removeMilliseconds(new Date(fs.statSync('./previous-404.html').mtime));
 
 const dataFiles = fs.readdirSync(dataPath);
+const imageFiles = fs.readdirSync(imagePath);
 let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 const todaysDate = new Date();
 const baseDomain = 'https://peggybabcock.co.uk';
@@ -47,7 +50,7 @@ dataFiles.forEach((file, i) => {
       const dataFileContents = fs.readFileSync(dataPath + file, 'utf8');
       const data = JSON.parse(dataFileContents);
       let toReturn = `<h2>${data.title}</h2>`;
-      const newHtml = data.img ? `<img src="./img/${data.img}" alt="${data.img_alt}" />` : '';
+      const newHtml = data.img ? `<picture><source srcset="./img/${data.img.replace('.jpg', '.webp')}" type="image/webp"><img src="./img/${data.img}" alt="${data.img_alt}" /></picture>` : '';
       let newHTML = `${newHtml}<h2>${data.title}</h2>`;
       if (Array.isArray(data.body)) {
           newHTML += data.body.reduce((newstring, block) => newstring + block.block, '');
@@ -80,6 +83,22 @@ dataFiles.forEach((file, i) => {
       sitemapXML = `${sitemapXML}<url><loc>${baseDomain}/${newFileName}</loc><lastmod>${modifiedDate.toISOString().split('T')[0]}</lastmod></url>`;
   }
 })
+
+imageFiles.forEach(img => {
+    if (img.indexOf('.jpg') !== -1) {
+        const webpFilename = img.replace('.jpg', '.webp');
+        const webpAlreadyExists = fs.existsSync(imagePath + webpFilename);
+        if (!webpAlreadyExists) {
+            sharp(imagePath + img).webp({ quality: 80 }).toFile(imagePath + webpFilename, (err, info) => {
+                if (err) {
+                  console.error(err);
+                } else {
+                  console.log(info);
+                }
+            });
+        }
+    }
+});
 
 if (forceUpdate || sensibleTimes(previousTemplateFileModified) !== sensibleTimes(templateFileModified)) {
      fs.writeFileSync('./previous-404.html', templateFile);
