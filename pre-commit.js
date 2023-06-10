@@ -50,7 +50,7 @@ dataFiles.forEach((file, i) => {
       fileContents = fileContents.replace('<title>Peggy Babcock</title>', `<title>${data.title} | Peggy Babcock</title>`);
       fileContents = fileContents.replace('___REPLACE_THIS___', newHTML);
       fileContents = fileContents.replace('<article class="visually-hidden">', '<article>');
-      if (modifiedDate.toISOString().split('T')[0] !== todaysDate.toISOString().split('T')[0])fileContents = fileContents.replace('<script type="application/ld+json"></script>', `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`);
+      fileContents = fileContents.replace('<script type="application/ld+json"></script>', `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`);
       
       if (currentFileContents !== fileContents) {
         console.log('changing file', newFileName);
