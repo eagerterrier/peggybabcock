@@ -4,7 +4,9 @@ const dataPath = './data/';
 const templateFile = fs.readFileSync('./404.html', 'utf8');
 
 const dataFiles = fs.readdirSync(dataPath);
-
+let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+const todaysDate = new Date().toISOString().split('T')[0];
+const baseDomain = 'https://peggybabcock.co.uk';
 
 dataFiles.forEach((file, i) => {
   if (file.indexOf('.json') !== -1) {
@@ -23,6 +25,16 @@ dataFiles.forEach((file, i) => {
       fileContents = fileContents.replace('<title>Peggy Babcock</title>', `<title>${data.title} | Peggy Babcock</title>`);
       fileContents = fileContents.replace('___REPLACE_THIS___', newHTML);
       fileContents = fileContents.replace('<article class="visually-hidden">', '<article>');
-      fs.writeFileSync(newFileName, fileContents);
+      const currentFileContents = fs.readFileSync(newFileName, 'utf8');
+      let modifiedDate = new Date(fs.statSync(newFileName).mtime).toISOString().split('T')[0];
+      if (currentFileContents !== fileContents) {
+        console.log('changing file', newFileName);
+        fs.writeFileSync(newFileName, fileContents);
+        modifiedDate = todaysDate;
+      }
+      sitemapXML = `${sitemapXML}<url><loc>${baseDomain}/${newFileName}</loc><lastmod>${modifiedDate}</lastmod></url>`;
   }
 })
+
+sitemapXML = sitemapXML + '</urlset>';
+fs.writeFileSync('sitemap.xml', sitemapXML);
