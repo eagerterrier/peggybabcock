@@ -3,6 +3,8 @@ const fs = require('fs');
 const sensibleTimes = time => time.substring(0, time.length -2);
 const removeMilliseconds = originalDate => originalDate.toISOString().split('.')[0];
 
+const forceUpdate = false;
+
 const dataPath = './data/';
 const templateFile = fs.readFileSync('./404.html', 'utf8');
 const templateFileModified = removeMilliseconds(new Date(fs.statSync('./404.html').mtime));
@@ -33,7 +35,8 @@ const structuredData = {
 
 
 const shouldWriteFile = (modifiedDate, file) => {
-    return sensibleTimes(previousTemplateFileModified) !== sensibleTimes(templateFileModified) || 
+    return forceUpdate || 
+      sensibleTimes(previousTemplateFileModified) !== sensibleTimes(templateFileModified) || 
       sensibleTimes(removeMilliseconds(fs.statSync(`data/${file}`).mtime)) !== sensibleTimes(removeMilliseconds(fs.statSync(`previous-data/${file}`).mtime))
 };
 
@@ -78,8 +81,9 @@ dataFiles.forEach((file, i) => {
   }
 })
 
-if (previousTemplateFileModified.substring(0, previousTemplateFileModified.length -2) !== templateFileModified.substring(0, previousTemplateFileModified.length -2)) {
+if (forceUpdate || sensibleTimes(previousTemplateFileModified) !== sensibleTimes(templateFileModified)) {
      fs.writeFileSync('./previous-404.html', templateFile);
+     fs.writeFileSync('./404.html', templateFile);
 }
 
 sitemapXML = sitemapXML + '</urlset>';
