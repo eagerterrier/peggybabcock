@@ -50,7 +50,7 @@ dataFiles.forEach((file, i) => {
       const dataFileContents = fs.readFileSync(dataPath + file, 'utf8');
       const data = JSON.parse(dataFileContents);
       let toReturn = `<h2>${data.title}</h2>`;
-      const newHtml = data.img ? `<picture><source srcset="./img/${data.img.replace('.jpg', '.webp')}" type="image/webp"><img src="./img/${data.img}" width="${data.img === 'peggy-babcock.jpg' ? '1424' : '1024'}" height="${data.img === 'peggy-babcock.jpg' ? '848' : '1024'}" alt="${data.img_alt}" /></picture>` : '';
+      const newHtml = data.img ? `<picture><source srcset="./img/${data.img.replace('.jpg', '.webp')}" type="image/webp"><source srcset="./img/${data.img.replace('.jpg', '.avif')}" type="image/avif"><img src="./img/${data.img}" width="${data.img === 'peggy-babcock.jpg' ? '1424' : '1024'}" height="${data.img === 'peggy-babcock.jpg' ? '848' : '1024'}" alt="${data.img_alt}" /></picture>` : '';
       let newHTML = `${newHtml}<h2>${data.title}</h2>`;
       if (Array.isArray(data.body)) {
           newHTML += data.body.reduce((newstring, block) => newstring + block.block, '');
@@ -90,6 +90,17 @@ imageFiles.forEach(img => {
         const webpAlreadyExists = fs.existsSync(imagePath + webpFilename);
         if (!webpAlreadyExists) {
             sharp(imagePath + img).webp({ quality: 80 }).toFile(imagePath + webpFilename, (err, info) => {
+                if (err) {
+                  console.error(err);
+                } else {
+                  console.log(info);
+                }
+            });
+        }
+        const avifFilename = img.replace('.jpg', '.avif');
+        const avifAlreadyExists = fs.existsSync(imagePath + avifFilename);
+        if (!avifAlreadyExists) {
+            sharp(imagePath + img).avif({ effort: 2 }).toFile(imagePath + avifFilename, (err, info) => {
                 if (err) {
                   console.error(err);
                 } else {
