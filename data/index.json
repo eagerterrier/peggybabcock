@@ -1,4 +1,4 @@
 {
     "title": "Home Page",
-    "body": "<picture><source srcset=\"./img/peggy-babcock.webp\" type=\"image/webp\"><img src=\"./img/peggy-babcock.jpg\" loading=\"lazy\" alt=\"Peggy Babcock's Mixed Biscuit in a tin\" /></picture> <h2>Home of our famouse...</h2> <div> <ul> <li class=\"blink\"><a href=\"./mixed-biscuits.html\">Mixed Biscuit!</a></li> </ul> </div>"
+    "body": "<picture><source srcset=\"./img/peggy-babcock.webp\" type=\"image/webp\"><img src=\"./img/peggy-babcock.jpg\" loading=\"lazy\" width=\"1424\" height=\"848\" alt=\"Peggy Babcock's Mixed Biscuit in a tin\" /></picture> <h2>Home of our famouse...</h2> <div> <ul> <li class=\"blink\"><a href=\"./mixed-biscuits.html\">Mixed Biscuit!</a></li> </ul> </div>"
 }
