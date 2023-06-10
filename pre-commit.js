@@ -8,7 +8,8 @@ let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://ww
 const todaysDate = new Date();
 const baseDomain = 'https://peggybabcock.co.uk';
 const structuredData = {
-	"@context": "https:\/\/schema.org",
+	"@context": "https://schema.org",
+	"@type": "Article",
 	"author": {
 		"@type": "Organization",
 		"name": "Peggy Babcock's Biographers"
@@ -41,7 +42,6 @@ dataFiles.forEach((file, i) => {
       }
       structuredData.url = `${baseDomain}/${newFileName}`;
       structuredData.mainEntity = structuredData.url;
-      structuredData['@type'] = file === 'index.json' ? 'Collection' : 'Article';
       structuredData.name = file === 'index.json' ? 'Peggy Babcock' : `${data.title} | Peggy Babcock`;
       structuredData.image = data.img ? `${baseDomain}/img/${data.img}`: `${baseDomain}/img/peggy-babcock.jpg`;
       structuredData.dateModified = modifiedDate;
