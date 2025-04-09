@@ -3,7 +3,7 @@ const images = ['img/Peggy-Babcock-Logo.png', 'img/peggy-babcock.jpg', 'img/alli
 const icons = ['icons/favicon.ico'];
 const dataURLs = URLs.map(url => `data${url}.json`);
 
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 
 const currentURL = self.location.pathname;
 const baseURL = self.location.hostname === 'localhost' ? '/peggybabcock/' : '/';
